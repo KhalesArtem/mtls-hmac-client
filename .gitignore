@@ -4,4 +4,5 @@
 /.phpunit.cache/
 /.idea/
 /certs/*.pem
-/certs/*.key
+/certs/*.key  
+/certs/*.p12
