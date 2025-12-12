@@ -5,7 +5,7 @@ namespace Payment\MtlsHmac\Exception;
 
 use Psr\Http\Message\ResponseInterface;
 
-class теHttpException extends GatewayException
+class HttpException extends GatewayException
 {
     public function __construct(
         public readonly int $statusCode,
