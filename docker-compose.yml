@@ -1,0 +1,25 @@
+services:
+  mtls-client:
+    build: .
+    container_name: mtls-hmac-client
+    volumes:
+      - .:/app
+      - ./certs:/app/certs
+    environment:
+      - GATEWAY_ENDPOINT=https://client.badssl.com/
+      - GATEWAY_HMAC_SECRET=test-secret-123
+      - GATEWAY_CERT_PATH=/app/certs/badssl-client-cert.pem
+      - GATEWAY_KEY_PATH=/app/certs/badssl-client-key.pem
+      - GATEWAY_KEY_PASSPHRASE=
+      - GATEWAY_VERIFY=true
+      - GATEWAY_HMAC_ALGO=sha256
+      - GATEWAY_SIGNATURE_HEADER=X-Signature
+      - HTTP_TIMEOUT=10
+      - HTTP_CONNECT_TIMEOUT=5
+      - INTEGRATION_TEST_ENABLED=1
+    working_dir: /app
+    command: tail -f /dev/null  # Keep container running
+    
+networks:
+  default:
+    name: mtls-network

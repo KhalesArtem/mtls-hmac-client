@@ -1,0 +1,7 @@
+/vendor
+/.env
+.phpunit.result.cache
+/.phpunit.cache/
+/.idea/
+/certs/*.pem
+/certs/*.key
